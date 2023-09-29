@@ -2,6 +2,7 @@ package controller;
 
 import model.Afdeling;
 import model.Persoon;
+import model.Werknemer;
 
 /**
  * @author Vincent Velthuizen <v.r.velthuizen@pl.hanze.nl>
@@ -18,8 +19,8 @@ public class BedrijfLauncher {
         afdelingen[2] = new Afdeling("Management", "Almere");
         afdelingen[3] = new Afdeling("Documentatie", "Gouda");
 
-        Persoon baas = new Persoon("Mark", "Den Haag", afdelingen[2]);
-        Persoon medewerker = new Persoon("Caroline", "Delft", afdelingen[1]);
+        Persoon baas = new Werknemer("Mark", "Den Haag", afdelingen[2], 10000);
+        Persoon medewerker = new Werknemer("Caroline", "Delft", afdelingen[1], 4000);
         Persoon assistent = new Persoon("Klaas");
 
         System.out.printf("Het aantal personen in het bedrijf is %d\n", Persoon.getAantalPersonen());

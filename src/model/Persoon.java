@@ -7,10 +7,6 @@ package model;
 public class Persoon {
     private static final String DEFAULT_NAAM = "Onbekend";
     private static final String DEFAULT_WOONPLAATS = "Onbekend";
-    private static final double DEFAULT_MAANDSALARIS = 0.0;
-
-    private static final int MAANDEN_PER_JAAR = 12;
-    private static final double GRENSWAARDE_BONUS = 4500.0;
 
     private static int aantalPersonen = 0;
 
