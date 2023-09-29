@@ -17,19 +17,17 @@ public class Persoon {
     private final int personeelsnummer;
     private final String naam;
     private final String woonplaats;
-    private double maandsalaris;
     private final Afdeling afdeling;
 
-    public Persoon(String naam, String woonplaats, double maandsalaris, Afdeling afdeling) {
+    public Persoon(String naam, String woonplaats, Afdeling afdeling) {
         this.personeelsnummer = ++aantalPersonen;
         this.naam = naam;
         this.woonplaats = woonplaats;
-        setMaandsalaris(maandsalaris);
         this.afdeling = afdeling;
     }
 
     public Persoon(String naam) {
-        this(naam, DEFAULT_WOONPLAATS, DEFAULT_MAANDSALARIS, new Afdeling());
+        this(naam, DEFAULT_WOONPLAATS, new Afdeling());
     }
 
     public Persoon() {
@@ -37,11 +35,12 @@ public class Persoon {
     }
 
     public double berekenJaarinkomen() {
-        return MAANDEN_PER_JAAR * maandsalaris;
+        return 0;
     }
 
-    public boolean heeftRechtOpBonus() {
-        return maandsalaris >= GRENSWAARDE_BONUS;
+    @Override
+    public String toString() {
+        return String.format("%s woont in %s en werkt op %s", this.naam, this.woonplaats, this.afdeling);
     }
 
     public static int getAantalPersonen() {
@@ -58,21 +57,6 @@ public class Persoon {
 
     public String getWoonplaats() {
         return woonplaats;
-    }
-
-    public double getMaandsalaris() {
-        return maandsalaris;
-    }
-
-    private void setMaandsalaris(double maandsalaris) {
-        if (maandsalaris < 0) {
-            System.err.printf("Het maandsalaris mag niet negatief zijn! Het maandsalaris wordt op %.1f gezet.\n",
-                    DEFAULT_MAANDSALARIS);
-            this.maandsalaris = DEFAULT_MAANDSALARIS;
-
-        } else {
-            this.maandsalaris = maandsalaris;
-        }
     }
 
     public Afdeling getAfdeling() {
