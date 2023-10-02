@@ -5,6 +5,8 @@ import model.Persoon;
 import model.Werknemer;
 import model.Zzper;
 
+import java.util.ArrayList;
+
 /**
  * @author Vincent Velthuizen <v.r.velthuizen@pl.hanze.nl>
  * Dagdagelijkse bezigheden in mijn bedrijf
@@ -20,18 +22,25 @@ public class BedrijfLauncher {
         afdelingen[2] = new Afdeling("Management", "Almere");
         afdelingen[3] = new Afdeling("Documentatie", "Gouda");
 
-        Werknemer baas = new Werknemer("Mark", "Den Haag", afdelingen[2], 10000);
-        Werknemer medewerker = new Werknemer("Caroline", "Delft", afdelingen[1], 4000);
-        Zzper assistent = new Zzper("Klaas", "Diemen", afdelingen[3], 50.0);
-        Zzper projectleider = new Zzper("Ronald", "Zaandam", afdelingen[0], 80.0);
+        ArrayList<Persoon> personen = new ArrayList<>();
 
-        assistent.huurIn(160);
-        projectleider.huurIn(320);
+        personen.add(new Werknemer("Mark", "Den Haag", afdelingen[2], 10000));
+        personen.add(new Werknemer("Angelique", "Rotterdam", afdelingen[2],
+                5000));
+        personen.add(new Werknemer("Caroline", "Delft", afdelingen[1], 4000));
+        personen.add(new Zzper("Klaas", "Diemen", afdelingen[3], 50.00));
+        personen.add(new Zzper("Ronald", "Zaandam", afdelingen[0], 80.00));
+        personen.add(new Zzper("Jannie", "Utrecht", afdelingen[0], 60.00));
+        personen.add(new Zzper("Anne", "Zwolle", afdelingen[0], 40.00));
 
-        Persoon[] personen = {baas, medewerker, assistent, projectleider};
+        for (Persoon persoon : personen) {
+            if (persoon instanceof Zzper) {
+                ((Zzper) persoon).huurIn(320);
+            }
+        }
 
-        for (int persoon = 0; persoon < personen.length; persoon++) {
-            toonJaarInkomen(personen[persoon]);
+        for (Persoon persoon : personen) {
+            toonJaarInkomen(persoon);
         }
     }
 
