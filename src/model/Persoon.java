@@ -4,7 +4,7 @@ package model;
  * @author Vincent Velthuizen <v.r.velthuizen@pl.hanze.nl>
  * Een persoon betrokken bij ons bedrijf
  */
-public class Persoon {
+public abstract class Persoon {
     private static final String DEFAULT_NAAM = "Onbekend";
     private static final String DEFAULT_WOONPLAATS = "Onbekend";
 
@@ -30,9 +30,7 @@ public class Persoon {
         this(DEFAULT_NAAM);
     }
 
-    public double berekenJaarinkomen() {
-        return 0;
-    }
+    public abstract double berekenJaarinkomen();
 
     @Override
     public String toString() {
