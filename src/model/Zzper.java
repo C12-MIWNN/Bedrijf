@@ -4,7 +4,7 @@ package model;
  * @author Vincent Velthuizen <v.r.velthuizen@pl.hanze.nl>
  * Beschrijft een zelfstandige die door ons bedrijf ingehuurd wordt.
  */
-public class Zzper extends Persoon {
+public class Zzper extends Persoon implements Oproepbaar {
     private static final int DEFAULT_UREN_GEWERKT = 0;
 
     private final double uurTarief;
@@ -16,6 +16,7 @@ public class Zzper extends Persoon {
         this.urenGewerkt = DEFAULT_UREN_GEWERKT;
     }
 
+    @Override
     public void huurIn(int uren) {
         urenGewerkt += uren;
     }
