@@ -6,6 +6,7 @@ import model.Werknemer;
 import model.Zzper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * @author Vincent Velthuizen <v.r.velthuizen@pl.hanze.nl>
@@ -39,6 +40,7 @@ public class BedrijfLauncher {
             }
         }
 
+        Collections.sort(personen);
         for (Persoon persoon : personen) {
             toonJaarInkomen(persoon);
         }
