@@ -17,10 +17,13 @@ public class BedrijfLauncher {
 
         System.out.print("Geef de naam: ");
         String naam = keyboard.next();
+
         System.out.print("Geef de woonplaats: ");
         String woonplaats = keyboard.next();
+
         System.out.print("Geef de naam van de afdeling: ");
         String afdelingsNaam = keyboard.next();
+
         System.out.print("Geef de plaats van de afdeling: ");
         String afdelingsPlaats = keyboard.next();
 
