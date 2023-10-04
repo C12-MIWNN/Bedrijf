@@ -4,6 +4,7 @@ import model.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,7 +66,23 @@ public class BedrijfLauncher {
         }
 
         Collections.sort(personen);
-        System.out.println(personen);
+
+        File uitvoerbestand = new File("resources/PersonenPerAfdeling.txt");
+        try (PrintWriter writer = new PrintWriter(uitvoerbestand)) {
+            for (Afdeling afdeling : afdelingen) {
+                writer.printf("Afdeling: %s\n", afdeling.getAfdelingsNaam());
+
+                for (Persoon persoon : personen) {
+                    if (persoon.getAfdeling().equals(afdeling)) {
+                        writer.printf("-- %s\n", persoon);
+                    }
+                }
+
+                writer.println();
+            }
+        } catch (FileNotFoundException fileNotFoundException) {
+            System.out.println("Het lukte niet om het uitvoerbestand te openen");
+        }
     }
 
 }
