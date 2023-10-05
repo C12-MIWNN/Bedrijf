@@ -72,4 +72,22 @@ public class AfdelingDAO extends AbstractDAO {
 
         return afdelingen;
     }
+
+    public Afdeling geefAfdeling(String afdelingsNaam) {
+        String sql = "SELECT afdelingsplaats FROM Afdeling WHERE afdelingsnaam = ?;";
+
+        try {
+            setupPreparedStatement(sql);
+            preparedStatement.setString(1, afdelingsNaam);
+            ResultSet resultSet = executeSelectStatement();
+
+            if (resultSet.first()) {
+                return new Afdeling(afdelingsNaam, resultSet.getString("afdelingsplaats"));
+            }
+        }  catch (SQLException sqlException) {
+            sqlExceptionWarning(sqlException);
+        }
+
+        return null;
+    }
 }
